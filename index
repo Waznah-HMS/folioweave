@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FolioWeave: Weaving ASEAN & French Understanding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles & Reset */
+        :root {
+            --color-indigo: #1A237E;
+            --color-gold: #FFD700;
+            --color-earth: #A0522D;
+            --color-terracotta: #D84315;
+            --color-synergy: #558B2F;
+            --color-background: #fff;
+            --color-text: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-indigo);
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 3.5em; text-align: center; }
+        h2 { font-size: 2.5em; text-align: center; margin-bottom: 1.5em; }
+        h3 { font-size: 1.5em; text-align: center; color: var(--color-earth); font-weight: 600; margin-bottom: 2em; }
+        h4 { font-size: 1.2em; font-family: 'Montserrat', sans-serif;}
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Placeholder for the sophisticated animated background */
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://via.placeholder.com/1920x1080/E0E0E0/333333?text=Toile+to+Batik+Animation');
+            background-size: cover;
+            color: var(--color-text);
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 4.5em;
+            margin-bottom: 10px;
+            color: var(--color-indigo);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        #hero h3 {
+            font-size: 1.8em;
+            max-width: 800px;
+            color: var(--color-text);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            padding: 18px 40px;
+            font-size: 1.3em;
+            font-weight: 700;
+            background-color: var(--color-indigo);
+            color: var(--color-gold);
+            border: 2px solid var(--color-gold);
+            border-radius: 5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-gold);
+            color: var(--color-indigo);
+            border-color: var(--color-indigo);
+        }
+
+        /* --- Problem Section --- */
+        #problem {
+            background-color: #f7f7f7;
+        }
+
+        .faux-pas-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .faux-pas-card {
+            width: 30%;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: var(--color-background);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: default;
+        }
+
+        .faux-pas-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faux-pas-card h4 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .faux-pas-card .insight-reveal {
+            margin-top: 15px;
+            padding: 15px;
+            border-left: 4px solid var(--color-gold);
+            background-color: #fffaf0;
+            font-size: 0.95em;
+        }
+
+        /* Card-specific colors */
+        #card-fashion h4 { color: var(--color-earth); }
+        #card-fashion { border-left: 5px solid var(--color-earth); }
+
+        #card-comm h4 { color: var(--color-indigo); }
+        #card-comm { border-left: 5px solid var(--color-indigo); }
+
+        #card-folklore h4 { color: var(--color-terracotta); }
+        #card-folklore { border-left: 5px solid var(--color-terracotta); }
+
+        /* --- Demo Core Section --- */
+        #demo-core {
+            background-color: var(--color-background);
+        }
+
+        .demo-box {
+            border: 2px solid var(--color-indigo);
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs-nav {
+            list-style: none;
+            display: flex;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            cursor: pointer;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            font-weight: 600;
+            margin-right: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tab-btn.active {
+            background-color: var(--color-indigo);
+            color: white;
+        }
+
+        .tab-btn:not(.active) {
+            background-color: #eee;
+            color: #555;
+        }
+
+        .tab-content {
+            padding-top: 20px;
+            border-top: 2px solid var(--color-indigo); /* Visual separation after tabs */
+        }
+
+        .tab-content select, .tab-content textarea, .tab-content input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .tab-content textarea {
+            height: 90px;
+            margin-bottom: 20px;
+            resize: none;
+        }
+
+        .demo-btn-main {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        /* Specific Button Colors */
+        #scenario-tab .demo-btn-main { background-color: var(--color-indigo); color: white; }
+        #story-tab .demo-btn-main { background-color: var(--color-terracotta); color: white; }
+
+        .output-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        #scenario-tab .output-box { border: 3px solid var(--color-indigo); background-color: #E8EAF6; }
+        #style-tab .output-box { border: 3px solid var(--color-synergy); background-color: #E8F5E9; }
+        #story-tab .output-box { border: 3px solid var(--color-terracotta); background-color: #FBEFEA; }
+
+        .output-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .output-box li {
+            margin-bottom: 8px;
+        }
+        .output-box .context-label { font-weight: bold; }
+
+        /* --- Vision Section --- */
+        #vision {
+            background-color: #f7f7f7;
+        }
+        
+        #vision p {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .mood-board {
+            height: 250px;
+            background: linear-gradient(90deg, #FFD70030, #1A237E30);
+            border-radius: 10px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-style: italic;
+            color: var(--color-indigo);
+            opacity: 0.8;
+        }
+
+        /* --- CTA Form Section --- */
+        #join-us {
+            background-color: var(--color-background);
+        }
+
+        #join-us p {
+            max-width: 700px;
+            margin: 20px auto 40px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .mailing-form-wrapper {
+            border: 1px solid #ccc;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mailing-form-wrapper input, .mailing-form-wrapper select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 18px;
+            background-color: var(--color-terracotta);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #c43912;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid #ccc;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 1.8em;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons .linkedin { color: var(--color-indigo); }
+        .social-icons .instagram { color: var(--color-terracotta); }
+        .social-icons .twitter { color: var(--color-indigo); }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <h1 style="font-family: 'Playfair Display', serif; font-size: 4.5em;">Beyond Fusion Confusion.</h1>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.8em; font-weight: 400;">Navigate the beautiful complexity of ASEAN-French collaboration with confidence, respect, and creativity.</h3>
+        <a href="#demo-core" class="cta-button">
+            ▶️ Experience the Demo
+        </a>
+    </section>
+
+    <section id="problem" class="container">
+        <h2>Lost in Translation Goes Beyond Words.</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">FolioWeave is built on the understanding that cultural friction is often invisible until it’s too late. Subtle differences in **fashion, communication, and storytelling** can lead to misunderstandings, lost opportunities, and even offense.</p>
+
+        <div class="faux-pas-grid">
+            <div id="card-fashion" class="faux-pas-card">
+                <h4>Fashion Faux Pas</h4>
+                <p style="font-weight: 600;">Image Placeholder: Dress with a misused sacred motif.</p>
+                <p style="font-style: italic; color: #666;">(Click/Hover to Reveal FolioWeave Insight)</p>
+                <div class="insight-reveal">
+                    **FolioWeave Insight:** **We'd flag this.** The **Naga symbol** (a mythical serpent revered across Southeast Asia) is sacred; placing it here and using it for mass production is deeply offensive to certain communities.
+                </div>
+            </div>
+
+            <div id="card-comm" class="faux-pas-card">
+                <h4>Communication Breakdown</h4>
+                <p style="font-weight: 600;">Image Placeholder: Confused business meeting.</p>
+                <p style="font-style: italic; color: #666;">(Click/Hover to Reveal FolioWeave Insight)</p>
+                <div class="insight-reveal">
+                    **FolioWeave Insight:** **A clear 'no' was never heard.** An indirect 'yes, but...' from an ASEAN partner was mistaken for agreement. FolioWeave decodes the unspoken 'yes, but...' for high-context cultures.
+                </div>
+            </div>
+
+            <div id="card-folklore" class="faux-pas-card">
+                <h4>Folklore Mismatch</h4>
+                <p style="font-weight: 600;">Image Placeholder: Logo using a rooster awkwardly.</p>
+                <p style="font-style: italic; color: #666;">(Click/Hover to Reveal FolioWeave Insight)</p>
+                <div class="insight-reveal">
+                    **FolioWeave Insight:** **Lack of a deeper narrative.** FolioWeave connects the French **Gallic Rooster** to the Philippine **Sarimanok**, inspiring a more profound, shared narrative of vigilance and pride.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #ddd;">
+
+    <section id="demo-core" class="container">
+        <h2>Your AI Cultural Guide.</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">See FolioWeave in action. Our platform is designed to instantly bridge the gap between French sophistication and ASEAN warmth across three core pillars.</p>
+
+        <div class="demo-box">
+            <ul class="tabs-nav" id="demoTabs">
+                <li class="tab-btn active" data-tab="scenario">Scenario Planner (Communication)</li>
+                <li class="tab-btn" data-tab="style">Style Decoder (Fashion)</li>
+                <li class="tab-btn" data-tab="story">Story Lens (Folklore)</li>
+            </ul>
+
+            <div id="scenario-tab" class="tab-content">
+                <div style="margin-bottom: 15px;">
+                    <label style="font-weight: 600;">Select a Scenario:</label>
+                    <select>
+                        <option>Business Lunch</option>
+                        <option>Giving Feedback</option>
+                        <option>Negotiating a Deadline</option>
+                        <option>Social Event</option>
+                    </select>
+                </div>
+                <textarea placeholder="Describe your specific situation... (e.g., 'First business lunch with a French team to discuss project budget overruns.')"></textarea>
+                <button class="demo-btn-main">Get Culturally Intelligent Advice</button>
+
+                <div class="output-box">
+                    <p style="font-weight: 700;">FolioWeave Output (for 'Business Lunch' scenario):</p>
+                    <ul>
+                        <li><span class="context-label" style="color: var(--color-earth);">ASEAN Context:</span> Prioritize rapport-building, not immediate business. The first 30 minutes are for getting to know the person. Avoid aggressive sales pitches.</li>
+                        <li><span class="context-label" style="color: var(--color-indigo);">French Context:</span> Be prepared for intellectual debate; they value logic and critical thinking. Direct discussion of the project is expected after initial pleasantries.</li>
+                        <li><span class="context-label" style="color: var(--color-gold);">Bridging Phrase:</span> "I'd like to understand the reasoning behind that perspective. It will help ensure our team can deliver in a way that aligns with your expectations." (Respectful, direct, and process-focused.)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="style-tab" class="tab-content" style="display: none;">
+                <div style="border: 2px dashed #999; padding: 30px; text-align: center; margin-bottom: 20px;">
+                    <p style="font-weight: 600;">Upload an image of a design or fabric (Demo Placeholder).</p>
+                    <input type="file" disabled style="width: auto; margin-top: 15px;"/>
+                </div>
+                <button class="demo-btn-main" style="background-color: #ccc; color: #666; cursor: not-allowed;">Analyze for Cultural Sync</button>
+                <div class="output-box">
+                    <p style="font-weight: 700;">FolioWeave Analysis (Pre-loaded Result):</p>
+                    <p style="margin: 10px 0;">✅ **Motif:** French Fleur-de-Lys & ASEAN Geometric Pattern.</p>
+                    <p style="margin: 10px 0;">✅ **Status:** <span style="font-weight: bold; color: var(--color-synergy);">Culturally Synergistic.</span> No sacred or restricted symbols detected.</p>
+                    <p style="margin: 10px 0;">✨ **Vibe:** Elegant Fusion. Recommended for a high-end, contemporary collection.</p>
+                </div>
+            </div>
+
+            <div id="story-tab" class="tab-content" style="display: none;">
+                <input type="text" placeholder="Ask about a symbol, story, or tradition..." value="Gallic Rooster" style="width: 70%; display: inline-block; margin-right: 10px;"/>
+                <button class="demo-btn-main" style="width: 28%; display: inline-block;">Find the Connection</button>
+                <div class="output-box">
+                    <p style="font-weight: 700;">FolioWeave Connection Output:</p>
+                    <ul>
+                        <li style="margin-bottom: 8px;"><span class="context-label" style="color: var(--color-indigo);">The Gallic Rooster (France):</span> Symbolizes vigilance and the French nation since the Renaissance.</li>
+                        <li><span class="context-label" style="color: var(--color-earth);">Connection to ASEAN:</span> Compare to the Philippine **Sarimanok**, a mythical bird representing fortune and leadership.</li>
+                        <li style="margin-top: 10px; font-style: italic;">**Creative Prompt:** Blend the Rooster's proud stance with the Sarimanok's flowing, elaborate tail for a new symbol of Franco-ASEAN enterprise.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #ddd;">
+
+    <section id="vision" class="container">
+        <h2>A New Renaissance of Collaboration.</h2>
+        <p>The current model of cross-cultural partnership often relies on surface-level translation and guesswork. FolioWeave's vision is to replace this uncertainty with a foundation of **profound, AI-driven empathy**.</p>
+        <p>We are building the engine for **deeper creativity, stronger partnerships, and mutual respect**—a new standard for global business and design.</p>
+        <div class="mood-board">
+            <p>Placeholder: Aspirational Mood-board Collage of Franco-ASEAN Success</p>
+        </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #ddd;">
+
+    <section id="join-us" class="container">
+        <h2>Help Us Weave the Future.</h2>
+        <p>FolioWeave is a concept, but the need is real. Are you a developer, designer, cultural expert, or innovator interested in this mission? **Join our community** to be the first to know when this project evolves.</p>
+
+        <div class="mailing-form-wrapper">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <label for="interest" style="display: block; margin-bottom: 5px; font-weight: bold;">I am a...</label>
+                <select id="interest" required>
+                    <option value="">Select your role</option>
+                    <option value="business">Business Professional</option>
+                    <option value="designer">Designer / Creative</option>
+                    <option value="developer">Developer / Engineer</option>
+                    <option value="researcher">Cultural Researcher / Expert</option>
+                    <option value="curious">Just Curious</option>
+                </select>
+                <button type="submit" class="form-submit-btn">
+                    Stay Informed
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Blog</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Contact</a>
+        </div>
+        <div class="social-icons" style="margin-top: 15px;">
+            <a href="#" class="linkedin">in</a> <a href="#" class="instagram" style="color: var(--color-terracotta);">📸</a> <a href="#" class="twitter">X</a> </div>
+        <p style="font-size: 0.8em; color: #666; margin-top: 10px;">© 2025 FolioWeave. All rights reserved.</p>
+        <p style="font-size: 0.8em; color: #333; margin-top: 5px; font-style: italic;">#FolioWeave #AILinksASEAN #ASEANFrenchCollab</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.getAttribute('data-tab');
+
+                    // Deactivate all tabs and hide all contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.style.display = 'none');
+
+                    // Activate the clicked tab and show the corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(targetTab + '-tab').style.display = 'block';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
